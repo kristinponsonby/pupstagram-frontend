@@ -1,9 +1,8 @@
-export function DogParkCard({name, url, image_url, address, rating}) {
+export function DogParkCard({name, url, imageUrl, address, rating}) {
 
-    return <div className="card">
-        <img src = {image_url} alt={name}></img>
+    return <div className="dog-park-card">
+        <img src = {imageUrl} alt={name}></img>
         <h3>{name}</h3>
-        <p> {url} </p>
         <p> {address} </p>
         <p> Rating: {rating} </p>
     </div>

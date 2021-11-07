@@ -7,9 +7,9 @@ import { DogParkCard } from '../components/DogParkCard'
 //It' saying, whenever you call render, run our useEffect method as long as the variable,
 //in this case props.dogParks changes
 function DogParkIndex({getDogParks, dogParks}) {
-    useEffect(() => dogParks.length === 0 && getDogParks(), [dogParks])
+    useEffect(getDogParks, [dogParks])
 
-        return <div className="cards">
+        return <div className="dog-park-container">
             <h1>Dog Parks in Your Area</h1>
             {dogParks.map(dogPark => <DogParkCard { ...dogPark} key={dogPark.id}/>)}
             </div>
