@@ -1,4 +1,8 @@
-export function DogParkCard({name, url, imageUrl, address, rating}) {
+import { Link } from 'react-router-dom'
+
+export function DogParkCard({id, name, url, imageUrl, address, rating}) {
+
+    console.log(id)
 
     return <div className="dog-park-card">
         <img src = {imageUrl} alt={name}></img>
