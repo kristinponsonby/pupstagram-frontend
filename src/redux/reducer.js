@@ -19,6 +19,7 @@ export function reducer(state=initialState, action){
      case "GET_DOG_PARK":
         return {...state, selectedDogPark: action.payload }
     case "CLEAR_DOG_PARK":
+        console.log("woof woof")
         return {...state, selectedDogPark: initialDogPark}
     default:
         return {...state} 

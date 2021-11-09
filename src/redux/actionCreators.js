@@ -18,3 +18,5 @@ export const getDogPark = (id) => {
     .then(dogPark => dispatch({type: "GET_DOG_PARK", payload: dogPark})
     )
 }
+
+export const clearDogPark = () => ({type: "CLEAR_DOG_PARK"})

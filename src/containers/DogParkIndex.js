@@ -10,7 +10,6 @@ function DogParkIndex({getDogParks, dogParks}) {
     useEffect(getDogParks, [getDogParks])
 
         return <div className="dog-park-container">
-            <h1>Dog Parks in Your Area</h1>
             {dogParks.map(dogPark => <DogParkCard { ...dogPark} key={dogPark.id}/>)}
             </div>
 }

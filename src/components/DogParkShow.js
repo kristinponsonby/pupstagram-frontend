@@ -2,19 +2,18 @@
 import { useParams } from 'react-router-dom'
 // this connects our component to redux
 import { connect } from 'react-redux'
-import { getDogPark } from '../redux/actionCreators'
+import { getDogPark, clearDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'
 
 
-function DogParkShow({getDogPark, name, url, imageUrl, address, rating}){
+function DogParkShow({getDogPark, name, url, imageUrl, address, rating, clearDogPark}){
     const routeId = useParams().id
     
     //so if routeId changes, it will go ahead and run this again
     useEffect(() => {
     getDogPark(routeId)
-    return function cleanUp(){
-    }
-    }, [getDogPark, routeId])
+    return clearDogPark
+    }, [getDogPark, routeId, clearDogPark])
 
 
     return <div className="show-dog-park">
@@ -29,4 +28,4 @@ const mapStateToProps = (state) => {
     return {...state.selectedDogPark}
 }
  
-export default connect(mapStateToProps, {getDogPark}) (DogParkShow);
+export default connect(mapStateToProps, {getDogPark, clearDogPark}) (DogParkShow);

@@ -7,9 +7,9 @@ import { Switch, Route } from 'react-router-dom';
 function App() {
   return (
     <>
-    <div className ="container">
-   <h1>Pupstagram</h1>
+    <div className ="app-container">
    <Nav/>
+   <h1 id="logo-font">Pupstagram</h1>
    <Switch>
      {/* Switch case will pick the first route that matches it's params. So the id page must go above the index page */}
    {/* Rule of routing: go from most specific to least specific */}
