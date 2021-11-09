@@ -12,7 +12,7 @@ export const getDogParks = () => {
 
 //for show page
 export const getDogPark = (id) => {
-    return dispatch => fetch(`http://localhost:3000/dog_parks{id}`)
+    return dispatch => fetch(`http://localhost:3000/dog_parks/${id}`)
     .then(res => res.json())
     // and then dispatch these dogpark to our reducer
     .then(dogPark => dispatch({type: "GET_DOG_PARK", payload: dogPark})
