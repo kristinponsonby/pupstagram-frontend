@@ -1,14 +1,15 @@
+const initialDogPark = {
+    name: "",
+    url: "",
+    imageUrl: "",
+    address: "",
+    zipCode: 0,
+    rating: 0
+    }
+
 const initialState = {
     dogParks: [],
-    selectedDogPark: {
-        //include the default null case for each data type
-     name: "",
-     url: "",
-     imageUrl: "",
-     address: "",
-     zipCode: null,
-     rating: null
-    }
+    selectedDogPark: initialDogPark
 }
 
 export function reducer(state=initialState, action){
@@ -17,8 +18,11 @@ export function reducer(state=initialState, action){
         return {...state, dogParks: action.payload};
      case "GET_DOG_PARK":
         return {...state, selectedDogPark: action.payload }
+    case "CLEAR_DOG_PARK":
+        return {...state, selectedDogPark: initialDogPark}
     default:
         return {...state} 
     }
 }
 
+ 

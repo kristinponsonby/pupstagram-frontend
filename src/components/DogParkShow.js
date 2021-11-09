@@ -6,17 +6,27 @@ import { getDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'
 
 
-function DogParkShow({getDogPark}){
+function DogParkShow({getDogPark, name, url, imageUrl, address, rating}){
     const routeId = useParams().id
     
     //so if routeId changes, it will go ahead and run this again
     useEffect(() => {
-        console.log("getting dog parks!")
-        getDogPark(routeId)
+    getDogPark(routeId)
+    return function cleanUp(){
+    }
     }, [getDogPark, routeId])
 
 
-    return <h1>You're on the show page!</h1>
+    return <div className="show-dog-park">
+       <h1>{name}</h1>
+       <img src={imageUrl} alt={name}></img>
+       <a href={url}><p>{address}</p></a>
+       <p>{rating}</p>
+        </div>
+}
+
+const mapStateToProps = (state) => {
+    return {...state.selectedDogPark}
 }
  
-export default connect(null, {getDogPark}) (DogParkShow);
+export default connect(mapStateToProps, {getDogPark}) (DogParkShow);
