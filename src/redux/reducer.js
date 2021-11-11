@@ -7,9 +7,13 @@ const initialDogPark = {
     rating: 0
     }
 
+
 const initialState = {
     dogParks: [],
-    selectedDogPark: initialDogPark
+    selectedDogPark: initialDogPark,
+    user: {
+        username: ""
+    }
 }
 
 export function reducer(state=initialState, action){
