@@ -22,16 +22,17 @@ export const getDogPark = (id) => {
 export const clearDogPark = () => ({type: "CLEAR_DOG_PARK"})
 
 export const submitSignup = (user) => {
-   return dispatch => fetch("http://localhost:3000/users",  {
-    method: "POST", 
-    headers:  {
-        'Content-Type': 'application/json',        
-    },     
-    body: JSON.stringify(user),  
-   })
-   .then(res => res.json())
-   .then(console.log)
+    return dispatch => fetch("http://localhost:3000/users", {
+    method: 'POST', // or 'PUT'
+    headers: {
+    'Content-Type': 'application/json',
+    },
+    body: JSON.stringify(user),
+    })
+    .then(response => response.json())
+    .then(user => dispatch({type: 'SET_USER', payload: user}))  
 }
+    
 
 export const submitLogin = (user) => {
     return dispatch => fetch("http://localhost:3000/sessions",  {
@@ -42,5 +43,5 @@ export const submitLogin = (user) => {
      body: JSON.stringify(user),  
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(user => dispatch({type: 'SET_USER', payload: user}))  
  }
