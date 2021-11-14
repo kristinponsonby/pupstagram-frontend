@@ -1,7 +1,12 @@
+import { PostCard } from '../components/PostCard';
+
 function PostIndex (props) {
 
     return <div className="posts">
-        <h1>All posts will go here!</h1>
+        <PostCard username="junabear" caption="Had a great day at the park!" imageUrl="https://images.dog.ceo/breeds/entlebucher/n02108000_2802.jpg"/>
+        <PostCard/>
+        <PostCard/>
+        <PostCard/>
     </div>
 } 
 

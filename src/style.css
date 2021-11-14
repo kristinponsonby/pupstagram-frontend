@@ -37,19 +37,41 @@ body {
 }
 
 .posts-index {
-  text-align: left;
+ align-items: center;
 }
 
 .post-card {
   background-color: white;
+  text-align: left;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19);
   border-radius: 1em;
   padding: 20px;
-  max-width: 350px;
-  margin-top: 20px;
-  margin-bottom: 20px;
+  max-width: 500px;
+  margin-top: 50px;
+  margin-bottom: 50px;
   margin-right: 20px;
   margin-left: 20px;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  padding: 20px 10px
+}
+
+.post-avatar {
+  margin-right: 10px;
+}
+
+.post-image {
+  width: 100%;
+  object-fit: contain;
+  max-width: 500px;
+}
+
+.post-text {
+  font-weight: normal;
+  padding: 20px 10px
 }
 
 .like-button {
