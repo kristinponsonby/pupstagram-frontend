@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
 import { useEffect } from 'react';
 import { autoLogin } from './redux/actionCreators';
 
+
 function App({user, autoLogin}) {
 
   useEffect(() => localStorage.token && autoLogin(), [autoLogin])
