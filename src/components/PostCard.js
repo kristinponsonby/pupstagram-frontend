@@ -1,6 +1,9 @@
+
+
 function PostCard (props) {
 
-    return <h1>a post will go here!</h1>
-} 
+    return <div className="post-card">
+        <h3>Username</h3>
+        </div>
 
 export default PostCard;

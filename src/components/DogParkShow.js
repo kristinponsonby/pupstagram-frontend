@@ -1,6 +1,5 @@
 //This component should fetch to our backend
 import { useParams } from 'react-router-dom'
-// this connects our component to redux
 import { connect } from 'react-redux'
 import { getDogPark, clearDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'

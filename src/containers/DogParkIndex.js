@@ -1,6 +1,5 @@
 import { useEffect } from "react"
 import { getDogParks} from '../redux/actionCreators'
-//this is what connects to redux
 import { connect } from 'react-redux'
 import { DogParkCard } from '../components/DogParkCard'
 //This useEffect will serve as our componentDidMount. 

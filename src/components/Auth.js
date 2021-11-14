@@ -26,7 +26,7 @@ function Auth (props) {
     }
 
     return <> 
-       {signup ? <h1>Don't have an account? Sign Up</h1> : <h1>Login</h1>}
+       {signup ? <h3>Don't have an account? Sign Up</h3> : <h3>Login</h3>}
        <form onSubmit={handleSubmit}>
         <label>
         Username:
@@ -46,7 +46,7 @@ function Auth (props) {
         </label>
        <input type="submit" value="Submit" />
        </form>
-       <h2>Or</h2><button onClick={toggleSignup}>{signup ? "Login" : "Signup"}</button>
+       <h3>Or</h3><button onClick={toggleSignup}>{signup ? "Login" : "Signup"}</button>
      </>
 } 
 
