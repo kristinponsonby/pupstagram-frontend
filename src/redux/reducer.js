@@ -12,7 +12,7 @@ const initialState = {
     dogParks: [],
     selectedDogPark: initialDogPark,
     user: {
-        username: "",
+        username:""
     }
 }
 
@@ -25,7 +25,10 @@ export function reducer(state=initialState, action){
     case "CLEAR_DOG_PARK":
         return {...state, selectedDogPark: initialDogPark};
     case "SET_USER":
-        return {...state, user: action.payload};
+        console.log(action.payload)
+        return {...state, user: action.payload.username};
+    case "CLEAR_USER":
+            return {...state, user: action.payload};
     default:
         return {...state} 
     }

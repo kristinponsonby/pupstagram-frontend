@@ -50,6 +50,7 @@ function Auth (props) {
     const classes = useStyles();
     const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
+    const [openLogin, setLogin] = useState(false);
     const handleOpen = () => setOpen(true);
 
     const [signup, setSignup] = useState(false)
@@ -70,10 +71,10 @@ function Auth (props) {
     }
 
     return <> 
-       {signup }
+  
        <Modal
-        open={open}
-        onclose={() => setOpen(false)}
+       open={open}
+       onClose={() => setOpen(false)}
        >
          <div style={style} className={classes.paper}>
            <center>
@@ -95,7 +96,7 @@ function Auth (props) {
         />
         <Input
         type="number"
-        placeholder="zip code"
+        placeholder="zipCode"
         value={zipCode}
         onChange={(e) => setZipCode(e.target.value)}
         />
@@ -112,8 +113,51 @@ function Auth (props) {
        </div>
      
        </Modal>
+      {/* Log in Modal */}
+       <Modal
+       open={openLogin}
+       onClose={() => setLogin(false)}
+       >
+         <div style={style} className={classes.paper}>
+           <center>
+         <h2 id="form-header">Pupstagram</h2>
+       <form className="app-signup" onSubmit={handleSubmit}>
+    
+        <Input
+         type="text"
+         placeholder="username"
+         value={username}
+         onChange={(e) => setUsername(e.target.value)}
+         />
        
+        <Input 
+        type="text"
+        placeholder="email"
+        value={email}
+        onChange={(e) => setEmail(e.target.value)} 
+        />
+
+        <Input
+       type="password"
+       placeholder="password"
+       value={password}
+       onChange={(e) => setPassword(e.target.value)}
+       />
+       <Button onClick={handleSubmit}>Sign In</Button>
+       
+       </form>
+       </center>
+       </div>
+       </Modal>
+
+       { username ?
+       <Button onClick={() => setOpen(true)}>Logout</Button> : 
+       <div className="login-container">
+       <Button onClick={() => setLogin(true)}>Sign In</Button>
        <Button onClick={() => setOpen(true)}>Sign Up</Button>
+       </div>
+       }
+       
      </>
 } 
 

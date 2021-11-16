@@ -29,15 +29,22 @@ export const submitSignup = (user) => {
     },
     body: JSON.stringify(user),
     })
-    .then(response => response.json())
+    .then(res => res.json())
     .then(response => {
-      localStorage.token = response.token
-      dispatch({type: 'SET_USER', payload: response.user})
-    })
-}
+        console.log(response)
+        if(!response.errors){
+            localStorage.token = response.token
+            dispatch({type: "SET_USER", payload: response.user})
+            } else {
+              dispatch({type: "ERROR", payload: response.errors})
+            }
+        
+          })
+        }
     
 
 export const submitLogin = (user) => {
+   
     return dispatch => fetch("http://localhost:3000/sessions",  {
      method: "POST", 
      headers:  {
@@ -47,20 +54,33 @@ export const submitLogin = (user) => {
     })
     .then(res => res.json())
     .then(response => {
+      
+        if(!response.errors){
         localStorage.token = response.token
-        dispatch({type: 'SET_USER', payload: response.user})
+        dispatch({type: "SET_USER", payload: response.user})
+      } else {
+        dispatch({type: "ERROR", payload: response.errors})
+      }
     })
- }
+  }
 
  export const autoLogin = () => {
+     console.log("hello")
     return dispatch => fetch("http://localhost:3000/me", {
       headers: {
-        'Authorization': localStorage.token
-      }
+        'Authorization' : localStorage.token,
+      },
     })
     .then(res => res.json())
     .then(response => {
-      localStorage.token = response.token
-      dispatch({type: "SET_USER", payload: response.user})
+        localStorage.token = response.token
+        dispatch({type: "SET_USER", payload: response.user})
     })
   }
+
+  export const logOut = () => {
+    localStorage.removeItem("token")
+    return ({type: "CLEAR_USER"})
+  }
+
+export const clearErrors = () => ({type:"CLEAR_ERROR"})
