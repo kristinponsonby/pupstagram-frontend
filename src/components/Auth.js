@@ -3,8 +3,9 @@ import { submitSignup } from '../redux/actionCreators';
 import { submitLogin } from '../redux/actionCreators';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom'; 
-import Modal from '@material-ui/core/Modal';
+import { logout } from '../redux/actionCreators'
 import { makeStyles } from '@material-ui/core/styles';
+import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 
@@ -69,6 +70,8 @@ function Auth (props) {
         //this is how we'll send users to posts page every time they log in
         history.push("/posts")
     }
+
+    
 
     return <> 
   
@@ -149,16 +152,15 @@ function Auth (props) {
        </center>
        </div>
        </Modal>
-
-       { username ?
-       <Button onClick={() => setOpen(true)}>Logout</Button> : 
-       <div className="login-container">
-       <Button onClick={() => setLogin(true)}>Sign In</Button>
-       <Button onClick={() => setOpen(true)}>Sign Up</Button>
-       </div>
-       }
+       {/* <div className="login-container"> */}
+         { username ? 
+       <Button onClick={logout}>Logout</Button> :
+       <Button onClick={() => setLogin(true)}>Sign In</Button> } 
+        
+         
+      {/* </div> */}
        
      </>
 } 
 
-export default connect(null, { submitSignup, submitLogin, })(Auth);
+export default connect(null, { submitSignup, submitLogin, logout })(Auth);
