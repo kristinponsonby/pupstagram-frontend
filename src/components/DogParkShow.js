@@ -5,7 +5,7 @@ import { getDogPark, clearDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'
 
 
-function DogParkShow({getDogPark, name, url, imageUrl, address, rating, clearDogPark}){
+function DogParkShow({getDogPark, name, url, imageUrl, address, rating, clearDogPark, id}){
     const routeId = useParams().id
     
     //so if routeId changes, it will go ahead and run this again

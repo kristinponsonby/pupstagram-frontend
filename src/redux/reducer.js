@@ -3,8 +3,8 @@ const initialDogPark = {
     url: "",
     imageUrl: "",
     address: "",
-    zipCode: 0,
-    rating: 0
+    zipCode: "",
+    rating: ""
     }
 
 
