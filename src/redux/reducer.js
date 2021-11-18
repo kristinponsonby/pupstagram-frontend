@@ -27,7 +27,7 @@ export function reducer(state=initialState, action){
     case "SET_USER":
         console.log(action.payload)
         return {...state, user: action.payload.username};
-    case "LOGOUT":
+    case "CLEAR_USER":
             return {...state, user: ""};
     default:
         return {...state} 

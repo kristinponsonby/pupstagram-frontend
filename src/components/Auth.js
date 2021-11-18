@@ -153,13 +153,11 @@ function Auth (props) {
        </div>
        </Modal>
        {/* <div className="login-container"> */}
-         { username ? 
+         {/* { username ?  */}
        <Button onClick={logout}>Logout</Button> :
-       <Button onClick={() => setLogin(true)}>Sign In</Button> } 
-        
-         
-      {/* </div> */}
-       
+       <Button onClick={() => setLogin(true)}>Sign In</Button> 
+       <Button onClick={() => setOpen(true)}>Sign Up</Button> 
+      {/* </div> */}     
      </>
 } 
 

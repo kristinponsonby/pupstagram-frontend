@@ -79,10 +79,9 @@ export const submitLogin = (user) => {
   }
 
   export const logout = () => {
-    return dispatch => {
-        localStorage.clear()
-        dispatch({type: "LOGOUT"})
-   }
-}
+    localStorage.removeItem("token")
+    return ({type: "CLEAR_USER"})
+  }
+
 
 export const clearErrors = () => ({type:"CLEAR_ERROR"})
