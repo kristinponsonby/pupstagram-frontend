@@ -3,7 +3,6 @@ import { submitSignup } from '../redux/actionCreators';
 import { submitLogin } from '../redux/actionCreators';
 import { connect } from 'react-redux';
 import { useHistory } from 'react-router-dom'; 
-import { logout } from '../redux/actionCreators'
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
@@ -62,16 +61,15 @@ function Auth (props) {
     const history = useHistory()
     
     // when we hit toggleSignup, it will take a look at signup, call setSignup, passing in the opposite value
-    const toggleSignup = () => setSignup(!signup)
+    // const toggleSignup = () => setSignup(!signup)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        signup ? props.submitSignup({ username, email, zip_code: zipCode, password }) : props.submitLogin({username, password})
+        signup ? props.submitSignup({ username, email, zip_code: zipCode, password }) : props.submitLogin({username, password}) && setLogin(false)
         //this is how we'll send users to posts page every time they log in
         history.push("/posts")
     }
 
-    
 
     return <> 
   
@@ -152,13 +150,11 @@ function Auth (props) {
        </center>
        </div>
        </Modal>
-       {/* <div className="login-container"> */}
-         {/* { username ?  */}
-       <Button onClick={logout}>Logout</Button> :
-       <Button onClick={() => setLogin(true)}>Sign In</Button> 
-       <Button onClick={() => setOpen(true)}>Sign Up</Button> 
-      {/* </div> */}     
+       <div className="login-container">
+       <Button onClick={() => setLogin(true)}>Log in</Button> 
+       <Button onClick={() => setOpen(true)}>Sign up</Button> 
+      </div>     
      </>
 } 
 
-export default connect(null, { submitSignup, submitLogin, logout })(Auth);
+export default connect(null, { submitSignup, submitLogin })(Auth);

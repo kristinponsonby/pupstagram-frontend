@@ -1,5 +1,4 @@
 import { connect } from 'react-redux'
-import { getDogPark, clearDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'
 
 function Profile() {

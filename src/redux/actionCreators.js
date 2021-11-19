@@ -79,6 +79,7 @@ export const submitLogin = (user) => {
   }
 
   export const logout = () => {
+      console.log("user logged out")
     localStorage.removeItem("token")
     return ({type: "CLEAR_USER"})
   }
