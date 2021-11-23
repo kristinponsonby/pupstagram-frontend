@@ -2,6 +2,14 @@
 //This is a function that takes in dispatch, and then calls dispatch on whatever action you pass into it. In this case,
 //the action is GET_DOG_PARKS
 //Thunk allows us to do this, otherwise our fetch is asynchronous and returns a promise 
+export const getPosts = () => {
+    return dispatch => fetch("http://localhost:3000/posts")
+    .then(res => res.json())
+    // and then dispatch these posts to the reducer
+    .then(posts => dispatch({type: "GET_POSTS", payload: posts})
+    )
+}
+
 export const getDogParks = () => {
     return dispatch => fetch("http://localhost:3000/dog_parks")
     .then(res => res.json())
