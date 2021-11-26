@@ -72,8 +72,20 @@ export const submitLogin = (user) => {
     })
   }
 
+  export const submitPost = (post) => {
+    return dispatch => fetch("http://localhost:3000/posts", {
+     method: "POST", 
+     headers:  {
+         'Content-Type': 'application/json',  
+         'Authorization' : localStorage.token
+     },
+     body: JSON.stringify(post)
+    })
+    .then(res => res.json())
+    .then(console.log)
+  }
+
  export const autoLogin = () => {
-     console.log("hello")
     return dispatch => fetch("http://localhost:3000/me", {
       headers: {
         'Authorization' : localStorage.token,

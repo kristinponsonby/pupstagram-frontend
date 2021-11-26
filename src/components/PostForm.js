@@ -3,8 +3,9 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 import { useState } from 'react';
 import { connect } from 'react-redux';
+import { submitPost } from '../redux/actionCreators';
 
- function PostForm() {
+ function PostForm({submitPost}) {
 
     const [caption, setCaption] = useState("")
     // const [image, setImage] = useState(null)
@@ -12,7 +13,7 @@ import { connect } from 'react-redux';
     const onSubmit = (e) => {
         e.preventDefault()
         const newPost = {caption}
-        console.log(newPost)
+        submitPost(newPost)
     }
 
     // const onImageChange = (e) => { 
@@ -58,4 +59,4 @@ import { connect } from 'react-redux';
       return {post: state.user.posts}
     }
    
-    export default connect(mapStateToProps)(PostForm);
+    export default connect(mapStateToProps, {submitPost})(PostForm);
