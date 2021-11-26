@@ -1,6 +1,6 @@
 import Avatar from '@material-ui/core/Avatar';
 
-export function PostCard ({ username, caption, imageUrl }) {
+export function PostCard ({ username, caption, image }) {
 
     return <div className="post-card">
         <div className="post-header">
@@ -11,7 +11,7 @@ export function PostCard ({ username, caption, imageUrl }) {
             />
         <h3>{username}</h3>
         </div>
-        <img className="post-image" src={imageUrl}></img>
+        <img className="post-image" src={image}></img>
         <h4 className="post-text"><strong>{username}:</strong> {caption}</h4>
     </div>
 

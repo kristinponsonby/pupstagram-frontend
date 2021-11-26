@@ -85,6 +85,10 @@ body {
   padding: 20px 10px
 }
 
+.post-form {
+  align-items: right;
+}
+
 .like-button {
   cursor: pointer;
   color: red;
