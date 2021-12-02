@@ -73,16 +73,21 @@ export const submitLogin = (user) => {
   }
 
   export const submitPost = (post) => {
-    return dispatch => fetch("http://localhost:3000/posts", {
+    const formData = new FormData();
+    formData.append('caption', post.caption);
+    formData.append('image', post.image);
+
+    return dispatch => {
+      fetch("http://localhost:3000/posts", {
      method: "POST", 
-     headers:  {
-         'Content-Type': 'application/json',  
-         'Authorization' : localStorage.token
+     headers: {
+        'Authorization' : localStorage.token,
      },
-     body: JSON.stringify(post)
+     body: formData
     })
     .then(res => res.json())
-    .then(console.log)
+    .then(post => dispatch({type: "ADD_POST", payload: post}))
+    }
   }
 
  export const autoLogin = () => {

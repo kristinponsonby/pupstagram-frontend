@@ -8,18 +8,18 @@ import { submitPost } from '../redux/actionCreators';
  function PostForm({submitPost}) {
 
     const [caption, setCaption] = useState("")
-    // const [image, setImage] = useState(null)
+    const [image, setImage] = useState(null)
 
     const onSubmit = (e) => {
         e.preventDefault()
-        const newPost = {caption}
+        const newPost = {image, caption}
         submitPost(newPost)
     }
 
-    // const onImageChange = (e) => { 
-    //     setImage({ image: e.target.files[0] });
-    //   };
-
+    const onImageChange = (e) => { 
+      setImage(e.target.files[0]);
+    };
+    
     return (
        
         <Box
@@ -34,13 +34,12 @@ import { submitPost } from '../redux/actionCreators';
           autoComplete="off"
         >
            <h3>New Post</h3>
-          {/* <Input 
+          <Input 
           type="file"
           accept="image/*"
           multiple={false}
-          onChange={onImageChange}
-          value={image}
-          /> */}
+          onChange={(e) => onImageChange(e)}
+          />
 
           <Input
           type="text"
