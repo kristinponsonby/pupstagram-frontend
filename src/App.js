@@ -1,10 +1,9 @@
 import './style.css';
-import Profile from './components/Profile';
+import { Profile } from './components/Profile';
 import DogParkIndex from './containers/DogParkIndex';
 import DogParkShow from './components/DogParkShow';
 import Auth from './components/Auth';
 import PostIndex from './containers/PostIndex';
-import PostForm from './components/PostForm'
 import Nav from './components/Nav';
 import { Switch, Route } from 'react-router-dom';
 import { connect } from 'react-redux';

@@ -28,7 +28,6 @@ export function reducer(state=initialState, action){
         return {...state, selectedDogPark: initialDogPark};
     case "GET_POSTS":
         return {...state, user: action.payload};
-        //Take in new post and add to user's existing posts
     case "ADD_POST":
         return {...state, user: [action.payload, ...state.user.posts]}
     case "SET_USER":

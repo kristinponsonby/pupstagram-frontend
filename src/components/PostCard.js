@@ -11,7 +11,7 @@ export function PostCard ({ username, caption, imageUrl }) {
             />
         <h3>{username}</h3>
         </div>
-        <img className="post-image" src={imageUrl}></img>
+        <img className="post-image" src={imageUrl} alt="cute dog"></img>
         <h4 className="post-text"><strong>{username}:</strong> {caption}</h4>
     </div>
 

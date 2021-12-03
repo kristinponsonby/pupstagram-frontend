@@ -1,15 +1,12 @@
-import { connect } from 'react-redux'
-import { useEffect } from 'react'
 
-function Profile() {
+export function Profile({ username, zipCode, bio, breed  }) { 
+
     return <div className="profile">
      <h1>My Profile</h1> 
-     <p> Username: Junabear</p>
-     <p>Breed: Pitbull lab</p>
-     <p>Birthday: 03/01/2018</p>
-     <p>Bio</p>
-     <h1>My Posts</h1>
+     <p> Username: {username}</p>
+     <p>Zip Code: {zipCode} </p>
+     <p>Breed: {breed}</p>
+     <p>Birthday: </p>
+     <p>Bio: {bio}</p>
      </div>
 }
-
-export default Profile;

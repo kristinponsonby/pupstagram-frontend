@@ -3,7 +3,11 @@
 //the action is GET_DOG_PARKS
 //Thunk allows us to do this, otherwise our fetch is asynchronous and returns a promise 
 export const getPosts = () => {
-    return dispatch => fetch("http://localhost:3000/posts")
+      return dispatch => fetch("http://localhost:3000/posts", {
+        headers: {
+          'Authorization': localStorage.token,
+          }
+    })
     .then(res => res.json())
     // and then dispatch these posts to the reducer
     .then(posts => dispatch({type: "GET_POSTS", payload: posts})
@@ -39,7 +43,6 @@ export const submitSignup = (user) => {
     })
     .then(res => res.json())
     .then(response => {
-        console.log(response)
         if(!response.errors){
             localStorage.token = response.token
             dispatch({type: "SET_USER", payload: response.user})

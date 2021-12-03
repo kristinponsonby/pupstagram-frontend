@@ -8,16 +8,7 @@ import Modal from '@material-ui/core/Modal';
 import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 
-function getModalStyle() {
-  const top = 50; 
-  const left = 50;
 
-  return {
-    top: `${top}%`,
-    left: `${left}%`,
-    transform: `translate(-${top}%, -${left}%)`,
-  };
-}
 
 const useStyles = makeStyles((theme) => ({
   paper: {
@@ -48,12 +39,10 @@ const style = {
 
 function Auth (props) {
     const classes = useStyles();
-    const [modalStyle] = useState(getModalStyle);
     const [open, setOpen] = useState(false);
     const [openLogin, setLogin] = useState(false);
-    const handleOpen = () => setOpen(true);
 
-    const [signup, setSignup] = useState(false)
+    const [signup, submitSignup] = useState(false)
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [zipCode, setZipCode] = useState("")

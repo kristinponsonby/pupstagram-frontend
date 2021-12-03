@@ -19,14 +19,21 @@ import { submitPost } from '../redux/actionCreators';
     const onImageChange = (e) => { 
       setImage(e.target.files[0]);
     };
-    
+
     return (
        
         <Box
           component="form" 
           onSubmit={onSubmit}
           sx={{
+            width: 300,
+            height: 300,
+            backgroundColor: 'white',
+            boxShadow: ' 2px 2px 2px 1px rgba(0, 0, 0, 0.2)',
+            borderRadius: '10px',
+            padding: '20px',
             display: 'flex',
+            justifyContent: 'center',
             alignItems: 'center',
             flexDirection: 'column',
           }}
@@ -43,6 +50,7 @@ import { submitPost } from '../redux/actionCreators';
 
           <Input
           type="text"
+          margin="dense"
           placeholder="caption"
           value={caption}
           onChange={(e) => setCaption(e.target.value)} 
@@ -54,7 +62,6 @@ import { submitPost } from '../redux/actionCreators';
     }
 
     const mapStateToProps = (state) => {
-      console.log(state) 
       return {post: state.user.posts}
     }
    
