@@ -20,7 +20,8 @@ function Nav({logout, username}){
 
 const loggedOutRender = () => <nav>Hello, user! Sign in or sign up!</nav>
 
-return username ? loggedInRender() : loggedOutRender()
+
+return username ? loggedInRender() : loggedOutRender() 
 }
 
 const mapStateToProps = (state) => ({username: state.user.username})

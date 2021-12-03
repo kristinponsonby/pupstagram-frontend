@@ -6,8 +6,8 @@ function PostIndex ({posts}){
     //create postcard component from each post in the posts array
 
    return  <div className="posts">
-        {posts.map(post => <PostCard {...post} key={post.id} imageUrl={post.image.url} />)}
         <PostForm />
+        {posts.map(post => <PostCard {...post} key={post.id} imageUrl={post.image.url} />)}
     </div>
 } 
 //use mapstatetoprops to grab all posts

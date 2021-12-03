@@ -142,6 +142,8 @@ function Auth (props) {
        <div className="login-container">
        <Button onClick={() => setLogin(true)}>Log in</Button> 
        <Button onClick={() => setOpen(true)}>Sign up</Button> 
+       <h1>Welcome to Pupstagram!</h1>
+       <p> A social media platform for doggos</p>
       </div>     
      </>
 } 
