@@ -10,6 +10,7 @@ export const getPosts = () => {
     )
 }
 
+
 export const getDogParks = () => {
     return dispatch => fetch("http://localhost:3000/dog_parks")
     .then(res => res.json())

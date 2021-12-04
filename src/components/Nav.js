@@ -12,7 +12,7 @@ const linkStyle = {
 function Nav({logout, username}){
   
   const loggedInRender = () => <nav id="nav-bar">
-     <Link to="/posts" style={linkStyle}>All Posts  </Link>
+     <Link to="/posts" style={linkStyle}>My Posts  </Link>
      <Link to="/profile" style={linkStyle}>My Profile   </Link> 
      <Link to="/dog_parks" style={linkStyle}>Find a Park   </Link> 
      <Button onClick={logout} className="logoutButton">Logout</Button>

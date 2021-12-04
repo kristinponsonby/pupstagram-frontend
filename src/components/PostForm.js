@@ -14,6 +14,7 @@ import { submitPost } from '../redux/actionCreators';
         e.preventDefault()
         const newPost = {image, caption}
         submitPost(newPost)
+        setCaption("")
     }
 
     const onImageChange = (e) => { 

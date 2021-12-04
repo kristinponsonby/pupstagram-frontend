@@ -9,7 +9,6 @@ import Button from '@material-ui/core/Button';
 import Input from '@material-ui/core/Input';
 
 
-
 const useStyles = makeStyles((theme) => ({
   paper: {
     position: 'absolute',
@@ -33,44 +32,44 @@ const style = {
   p: 4,
 };
 
-//Will be storing our controlled form data locally
-//This is what a hooks based form looks like 
-
 
 function Auth (props) {
     const classes = useStyles();
-    const [open, setOpen] = useState(false);
+    const [openSignup, setOpen] = useState(false);
     const [openLogin, setLogin] = useState(false);
 
-    const [signup, submitSignup] = useState(false)
     const [username, setUsername] = useState("")
     const [email, setEmail] = useState("")
     const [zipCode, setZipCode] = useState("")
     const [password, setPassword] = useState("")
     const history = useHistory()
     
-    // when we hit toggleSignup, it will take a look at signup, call setSignup, passing in the opposite value
-    // const toggleSignup = () => setSignup(!signup)
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        signup ? props.submitSignup({ username, email, zip_code: zipCode, password }) : props.submitLogin({username, password}) && setLogin(false)
+        props.submitLogin({username, password}) && setLogin(false)
         //this is how we'll send users to posts page every time they log in
         history.push("/posts")
     }
 
+    const handleSignUp = (e) => {
+      e.preventDefault()
+      props.submitSignup({ username, email, zip_code: zipCode, password }) && setOpen(false)
+    }
+
+
 
     return <> 
-  
+      
        <Modal
-       open={open}
+       open={openSignup}
        onClose={() => setOpen(false)}
        >
-         <div style={style} className={classes.paper}>
+       <div style={style} className={classes.paper}>
            <center>
-         <h2 id="form-header">Pupstagram</h2>
-       <form className="app-signup" onSubmit={handleSubmit}>
-    
+         <h2 id="form-header">Pupstagram</h2> 
+       <form className="app-signup" onSubmit={handleSignUp}> 
+      
         <Input
          type="text"
          placeholder="username"
@@ -96,13 +95,18 @@ function Auth (props) {
        value={password}
        onChange={(e) => setPassword(e.target.value)}
        />
-       <Button onClick={handleSubmit}>Sign Up</Button>
-       
-       </form>
+    
+       <Button onClick={handleSignUp}>Sign Up</Button> 
+        
+       </form>  
        </center>
-       </div>
-     
+       </div> 
+
+
+  
+  
        </Modal>
+  
       {/* Log in Modal */}
        <Modal
        open={openLogin}
