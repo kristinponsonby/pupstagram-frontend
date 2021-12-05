@@ -30,11 +30,11 @@ export function reducer(state=initialState, action){
     case "GET_POSTS":
         return {...state, posts: action.payload};
     case "ADD_POST":
-        console.log(action.payload)
-        // return  {...state, user: {...state.user, posts: [action.payload, ...state.user.posts]}}
         return  {...state, posts: [action.payload, ...state.posts]};
     case "SET_USER":
         return {...state, user: action.payload};
+    case "GET_USER":
+        return {...state, user: action.payload };
     case "CLEAR_USER":
         return {...state, user: initialUser}
     default:

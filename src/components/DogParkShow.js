@@ -1,8 +1,7 @@
-//This component should fetch to our backend
 import { useParams } from 'react-router-dom'
 import { connect } from 'react-redux'
-import { getDogPark, clearDogPark } from '../redux/actionCreators'
 import { useEffect } from 'react'
+import { getDogPark, clearDogPark } from '../redux/actionCreators'
 
 
 function DogParkShow({getDogPark, name, url, imageUrl, address, rating, clearDogPark, id}){

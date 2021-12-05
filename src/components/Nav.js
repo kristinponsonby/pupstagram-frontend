@@ -1,4 +1,4 @@
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom'
 import { connect } from 'react-redux'
 import { logout } from '../redux/actionCreators'
 import Button from '@material-ui/core/Button';
@@ -9,21 +9,21 @@ const linkStyle = {
   color: 'black',
 }; 
 
-function Nav({logout, username}){
+function Nav({logout, id}){
   
-  const loggedInRender = () => <nav id="nav-bar">
-     <Link to="/posts" style={linkStyle}>My Posts  </Link>
-     <Link to="/profile" style={linkStyle}>My Profile   </Link> 
-     <Link to="/dog_parks" style={linkStyle}>Find a Park   </Link> 
-     <Button onClick={logout} className="logoutButton">Logout</Button>
+  const loggedInRender = () => <nav className="nav-bar">
+     <NavLink id="navItem" to="/posts" style={linkStyle}>All Posts  </NavLink>
+     <NavLink id="navItem" to={`/users/${id}`} style={linkStyle}>My Profile   </NavLink> 
+     <NavLink id="navItem" to="/dog_parks" style={linkStyle}>Find a Park   </NavLink> 
+     <Button id="logInButton" onClick={logout} className="logoutButton">Logout</Button>
      </nav>
 
 const loggedOutRender = () => <nav>Hello, user! Sign in or sign up!</nav>
 
 
-return username ? loggedInRender() : loggedOutRender() 
+return id ? loggedInRender() : loggedOutRender() 
 }
 
-const mapStateToProps = (state) => ({username: state.user.username})
+const mapStateToProps = (state) => ({id: state.user.id})
 
 export default connect(mapStateToProps, {logout})(Nav);

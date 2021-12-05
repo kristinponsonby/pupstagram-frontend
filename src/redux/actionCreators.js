@@ -1,7 +1,12 @@
 
-//This is a function that takes in dispatch, and then calls dispatch on whatever action you pass into it. In this case,
-//the action is GET_DOG_PARKS
 //Thunk allows us to do this, otherwise our fetch is asynchronous and returns a promise 
+export const getUser = (id) => {
+  console.log(id)
+  return dispatch => fetch (`http://localhost:3000/users/${id}`)
+  .then(res => res.json())
+  .then(user => dispatch({type: "GET_USER", payload: user}))
+}
+
 export const getPosts = () => {
       return dispatch => fetch("http://localhost:3000/posts")
     .then(res => res.json())

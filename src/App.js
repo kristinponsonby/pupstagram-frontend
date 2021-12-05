@@ -1,5 +1,5 @@
 import './style.css';
-import { Profile } from './components/Profile';
+import Profile  from './components/Profile';
 import DogParkIndex from './containers/DogParkIndex';
 import DogParkShow from './components/DogParkShow';
 import Auth from './components/Auth';
@@ -35,7 +35,7 @@ function App({user, autoLogin}) {
             <Route path="/dog_parks/:id"><DogParkShow/></Route>
             <Route path="/dog_parks"><DogParkIndex/></Route>
             <Route path="/posts"><PostIndex/></Route>
-            <Route path="/profile"><Profile/></Route>
+            <Route path="/users/:id"><Profile/></Route>
             <Route exact path='/'><PostIndex/></Route>
           </Switch> :
             <Auth/>

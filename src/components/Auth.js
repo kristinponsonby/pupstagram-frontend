@@ -27,9 +27,9 @@ const style = {
   transform: 'translate(-50%, -50%)',
   width: 400,
   bgcolor: 'background.paper',
-  border: '2px solid #000',
   boxShadow: 24,
   p: 4,
+  borderRadius: 5,
 };
 
 
@@ -96,7 +96,7 @@ function Auth (props) {
        onChange={(e) => setPassword(e.target.value)}
        />
     
-       <Button onClick={handleSignUp}>Sign Up</Button> 
+       <Button id="signUpButton" onClick={handleSignUp}>Sign Up</Button> 
         
        </form>  
        </center>
@@ -137,15 +137,15 @@ function Auth (props) {
        value={password}
        onChange={(e) => setPassword(e.target.value)}
        />
-       <Button onClick={handleSubmit}>Sign In</Button>
+       <Button  id="logInButton" onClick={handleSubmit}>Log In</Button>
        
        </form>
        </center>
        </div>
        </Modal>
        <div className="login-container">
-       <Button onClick={() => setLogin(true)}>Log in</Button> 
-       <Button onClick={() => setOpen(true)}>Sign up</Button> 
+       <Button id="logInButton" onClick={() => setLogin(true)}>Log in</Button> 
+       <Button id="signUpButton" onClick={() => setOpen(true)}>Sign up</Button> 
        <h1>Welcome to Pupstagram!</h1>
        <p> A social media platform for doggos</p>
       </div>     

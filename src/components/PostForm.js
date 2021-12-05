@@ -23,7 +23,7 @@ import { submitPost } from '../redux/actionCreators';
 
     return (
        
-        <Box
+        <Box className="post-form"
           component="form" 
           onSubmit={onSubmit}
           sx={{
@@ -56,7 +56,7 @@ import { submitPost } from '../redux/actionCreators';
           value={caption}
           onChange={(e) => setCaption(e.target.value)} 
           />
-          <Button onClick={onSubmit}>Post</Button>
+          <Button id="logInButton" onClick={onSubmit}>Post</Button>
         </Box>
   
       )
