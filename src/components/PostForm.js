@@ -67,3 +67,5 @@ import { submitPost } from '../redux/actionCreators';
     }
    
     export default connect(mapStateToProps, {submitPost})(PostForm);
+    //component lifecyle order-be able to explain 
+    //connect gives us access too mapStateToProps and mapDispatchToProps, deconstructed. 

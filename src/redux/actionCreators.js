@@ -4,13 +4,15 @@ export const getUser = (id) => {
   console.log(id)
   return dispatch => fetch (`http://localhost:3000/users/${id}`)
   .then(res => res.json())
-  .then(user => dispatch({type: "GET_USER", payload: user}))
+  .then(selectedUser => dispatch({type: "GET_USER", payload: selectedUser}))
 }
+
+export const clearUserShow = () => ({type:"CLEAR_USER_SHOW"})
+
 
 export const getPosts = () => {
       return dispatch => fetch("http://localhost:3000/posts")
     .then(res => res.json())
-    // and then dispatch these posts to the reducer
     .then(posts => dispatch({type: "GET_POSTS", payload: posts})
     )
 }
@@ -82,6 +84,7 @@ export const submitLogin = (user) => {
     formData.append('caption', post.caption);
     formData.append('image', post.image);
 
+    // thunk, allows us to return a function inside the action creator
     return dispatch => {
       fetch("http://localhost:3000/posts", {
      method: "POST", 
