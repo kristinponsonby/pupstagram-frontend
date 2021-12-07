@@ -1,27 +1,27 @@
-import { getUser } from '../redux/actionCreators';
+import { getUser, clearUserShow } from '../redux/actionCreators';
 import { useEffect } from "react";
 import { connect } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import Avatar from '@material-ui/core/Avatar';
 
-function Profile({getUser, user, username, zipCode, }) { 
-    const routeId = useParams().id
+
+function Profile({getUser, clearUserShow, selectedUser, username, zipCode, }) { 
+    const {id} = useParams()
+    console.log(selectedUser)
 
     useEffect(() => {
-        getUser(routeId)
-        }, [getUser, routeId])
-  
+        getUser(id)
+        return clearUserShow
+      }, [getUser, id, clearUserShow])
 
     return <div className="profile">
      <h1>My Profile</h1> 
-     <h2> Username: {username}</h2>
-
-     <h2>Zip Code: {zipCode} </h2>
+     <h2> Username: {selectedUser.username}</h2>
+     <h2>Zip Code: {selectedUser.zipCode} </h2>
      </div>
 }
 
-const mapStateToProps = (state) =>{
-   return  {...state.user}
-  }
+const mapStateToProps = (state) =>({
+    selectedUser: state.selectedUser
+  })
 
-export default connect (mapStateToProps, { getUser })(Profile)
+export default connect (mapStateToProps, { getUser, clearUserShow })(Profile)

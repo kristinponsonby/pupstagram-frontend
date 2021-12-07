@@ -13,6 +13,7 @@ const initialUser = {
       }
 
 const initialState = {
+    selectedUser: initialUser,
     posts: [],
     dogParks: [],
     selectedDogPark: initialDogPark,
@@ -34,7 +35,9 @@ export function reducer(state=initialState, action){
     case "SET_USER":
         return {...state, user: action.payload};
     case "GET_USER":
-        return {...state, user: action.payload };
+        return {...state, selectedUser: action.payload };
+     case "CLEAR_USER_SHOW":
+        return {...state, selectedUser: initialUser};
     case "CLEAR_USER":
         return {...state, user: initialUser}
     default:
