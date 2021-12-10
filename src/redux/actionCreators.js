@@ -98,6 +98,19 @@ export const submitLogin = (user) => {
     }
   }
 
+  export const deletePost = (id) => {
+    return dispatch => {
+  fetch(`http://localhost:3000/posts/${id}`, {
+  method: 'DELETE',
+  headers: {
+    'Authorization' : localStorage.token,
+ },
+})
+  .then(() => dispatch({type: "DELETE_POST", payload: {id} }))
+  }
+}
+
+
  export const autoLogin = () => {
     return dispatch => fetch("http://localhost:3000/me", {
       headers: {

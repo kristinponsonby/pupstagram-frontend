@@ -62,10 +62,10 @@ import { submitPost } from '../redux/actionCreators';
       )
     }
 
-    const mapStateToProps = (state) => {
-      return {post: state.user.posts}
-    }
+    // const mapStateToProps = (state) => {
+    //   return {post: state.user.posts}
+    // }
    
-    export default connect(mapStateToProps, {submitPost})(PostForm);
+    export default connect(null, {submitPost})(PostForm);
     //component lifecyle order-be able to explain 
     //connect gives us access too mapStateToProps and mapDispatchToProps, deconstructed. 

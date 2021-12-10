@@ -10,7 +10,6 @@ const linkStyle = {
 }; 
 
 function Nav({logout, id}){
-  console.log(id)
   const loggedInRender = () => <nav className="nav-bar">
      <NavLink id="navItem" to="/posts" style={linkStyle}>All Posts  </NavLink>
      <NavLink id="navItem" to={`/users/${id}`} style={linkStyle}>My Profile   </NavLink> 

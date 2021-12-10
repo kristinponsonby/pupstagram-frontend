@@ -1,9 +1,9 @@
 import Avatar from '@material-ui/core/Avatar';
 
 
-export function PostCard ({ username, caption, imageUrl}) {
-
+export function PostCard ({ username, caption, imageUrl, deletePost, id, user }) {
   
+       
 
     return <div className="post-card">
         <div className="post-header">
@@ -16,6 +16,10 @@ export function PostCard ({ username, caption, imageUrl}) {
         </div>
         <img className="post-image" src={imageUrl} alt="cute dog"></img>
         <h4 className="post-text"><strong>{username}:</strong> {caption}</h4>
-    
+            <div className="display-delete">
+                { user.username == username && <button onClick={() => {deletePost(id)} } > delete </button>  }
+            </div>
+        {/* <button onClick={() => {deletePost(id)} } > delete </button> */}
+    {/* ? ternary to display button, and then, function that handles click, check to see if logged in user*/}
     </div>
 }
