@@ -129,9 +129,10 @@ body {
   justify-content: center;
 }
 
-.like-button {
+#liker {
   cursor: pointer;
   color: red;
+  margin: 15px
 }
 
 
